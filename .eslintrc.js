@@ -8,8 +8,30 @@ module.exports = {
     '@vue/prettier'
   ],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'prettier/prettier': 'error',
+    indent: 0,
+    'no-tabs': 0,
+    'eol-last': 'off',
+    'generator-star-spacing': 0,
+    'vue/attribute-hyphenation': [
+      'error',
+      'always'
+    ],
+    'vue/html-end-tags': 'error',
+    'vue/html-indent': [
+      'error',
+      2
+    ],
+    'vue/html-self-closing': 'error',
+    'vue/require-default-prop': 'error',
+    'vue/require-prop-types': 'error',
+    'vue/attributes-order': 'error',
+    'vue/html-quotes': [
+      'error',
+      'single'
+    ],
+    'vue/order-in-components': 'error',
+    'vue/require-default-prop':[0]
   },
   parserOptions: {
     parser: 'babel-eslint'

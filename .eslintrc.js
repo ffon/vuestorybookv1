@@ -23,15 +23,13 @@ module.exports = {
       2
     ],
     'vue/html-self-closing': 'error',
-    'vue/require-default-prop': 'error',
     'vue/require-prop-types': 'error',
     'vue/attributes-order': 'error',
     'vue/html-quotes': [
       'error',
-      'single'
+      'double'
     ],
-    'vue/order-in-components': 'error',
-    'vue/require-default-prop':[0]
+    'vue/order-in-components': 'error'
   },
   parserOptions: {
     parser: 'babel-eslint'

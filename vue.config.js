@@ -21,13 +21,16 @@ module.exports = {
       }
     }
   },
+
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
-        Popper: "popper.js"
+        "window.jQuery": "jquery"
       })
     ]
-  }
+  },
+
+  lintOnSave: true
 };

@@ -21,17 +21,61 @@ module.exports = {
       }
     }
   },
-
+  lintOnSave: true,
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
-        "window.jQuery": "jquery",
         Popper: "popper.js"
       })
-    ]
-  },
-
-  lintOnSave: true
+    ],
+    performance: {
+      hints: false
+    },
+    optimization: {
+      splitChunks: {
+        chunks: "async",
+        minSize: 30000,
+        maxSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 5,
+        maxInitialRequests: 3,
+        automaticNameDelimiter: "~",
+        name: true,
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10
+          },
+          jquery: {
+            test: /[\\/]node_modules[\\/]jquery/,
+            chunks: "all",
+            name: "jquery",
+            enforce: true,
+            priority: 1
+          },
+          bootstrap: {
+            test: /[\\/]node_modules[\\/]bootstrap/,
+            chunks: "all",
+            name: "bootstrap",
+            enforce: true,
+            priority: 1
+          },
+          popperjs: {
+            test: /[\\/]node_modules[\\/]popper\.js/,
+            chunks: "all",
+            name: "popperjs",
+            enforce: true,
+            priority: 1
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+          }
+        }
+      }
+    }
+  }
 };
